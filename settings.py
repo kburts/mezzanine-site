@@ -12,6 +12,7 @@ GRAPPELLI_INSTALLED = False
 SITE_TITLE = "Kevin's Site"
 SITE_TAGLINE = "" # Haven't thought of one yet.
 GOOGLE_ANALYTICS_ID = 'UA-48373847-1'
+TWITTER_DEFAULT_NUM_TWEETS = 0
 
 # The following settings are already defined with default values in
 # the ``defaults.py`` module within each of Mezzanine's apps, but are
@@ -260,6 +261,7 @@ INSTALLED_APPS = (
     #"mezzanine.accounts",
     #"mezzanine.mobile",
     "mezzanine_pagedown",
+    "markdown_styles",
 )
 
 # List of processors used by RequestContext to populate the context.
