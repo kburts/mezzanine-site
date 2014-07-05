@@ -9,6 +9,10 @@ from __future__ import absolute_import, unicode_literals
 TESTING = False
 GRAPPELLI_INSTALLED = False
 
+SITE_TITLE = "Kevin's Site"
+SITE_TAGLINE = "" # Haven't thought of one yet.
+GOOGLE_ANALYTICS_ID = 'UA-48373847-1'
+
 # The following settings are already defined with default values in
 # the ``defaults.py`` module within each of Mezzanine's apps, but are
 # common enough to be put here, commented out, for convenient
