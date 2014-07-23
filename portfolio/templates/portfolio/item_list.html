@@ -1,0 +1,18 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags %}
+
+{% block main %} {{ block.super }}
+
+<h1>Portfolio</h1>
+<ul>
+    {{ object_list }}
+{% for item in object_list %}
+    <li>{{ item }}</li>
+    <li>{{ item.projectName }} - {{ item.projectDescription }}</li>
+{% empty %}
+    <li>No items yet.</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

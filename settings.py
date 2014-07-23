@@ -262,6 +262,7 @@ INSTALLED_APPS = (
     #"mezzanine.mobile",
     "mezzanine_pagedown",
     "markdown_styles",
+    "portfolio",
 )
 
 # List of processors used by RequestContext to populate the context.
