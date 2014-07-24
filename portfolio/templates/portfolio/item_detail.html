@@ -10,10 +10,9 @@
 
 <ul>
     {{ object_list }}
+    {{ object.projectDescription }}
 {% for item in object_list %}
-    <a href = "{% url 'portfolio-detail' item.id %}">
-        <li>{{ item.projectName }} - {{ item.projectDescription }}</li>
-    </a>
+    <li>{{ item.projectName }} - {{ item.projectDescription }}</li>
 {% empty %}
     <li>No items yet.</li>
 {% endfor %}
