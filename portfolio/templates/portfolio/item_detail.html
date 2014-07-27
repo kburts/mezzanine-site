@@ -1,21 +1,24 @@
-{% extends "pages/page.html" %}
+{% extends "portfolio/item_list.html" %}
 
 {% load mezzanine_tags %}
 
-{% block main %}
+{% block breadcrumb_menu %}
 {{ block.super }}
+<li class="active">{{ object.projectName }}</li>
+{% endblock %}
 
-{{ page.title }}
+
+{% block main %}
+{{ page.item.projectTItle }}
 <h1>{% editable page.title %} PT {{ page.title }} {% endeditable %}</h1>
-
 <ul>
     {{ object_list }}
     {{ object.projectDescription }}
-{% for item in object_list %}
-    <li>{{ item.projectName }} - {{ item.projectDescription }}</li>
-{% empty %}
-    <li>No items yet.</li>
-{% endfor %}
+    {% for item in object_list %}
+        <li>{{ item.projectName }} - {{ item.projectDescription }}</li>
+    {% empty %}
+        <li>No items yet.</li>
+    {% endfor %}
 </ul>
 
 {% endblock %}

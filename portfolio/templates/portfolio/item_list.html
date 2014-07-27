@@ -2,12 +2,16 @@
 
 {% load mezzanine_tags %}
 
-{% block main %}
 {{ block.super }}
 
-{{ page.title }}
-<h1>{% editable page.title %} PT {{ page.title }} {% endeditable %}</h1>
+{% block title %} {{ block.super }}
+{% endblock %}
 
+{% block breadcrumb_menu %}
+{{ block.super }}
+{% endblock %}
+
+{% block main %}
 <ul>
     {{ object_list }}
 {% for item in object_list %}
