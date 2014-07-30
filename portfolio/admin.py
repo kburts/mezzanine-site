@@ -1,10 +1,13 @@
 from django.contrib import admin
 from mezzanine.pages.admin import DisplayableAdmin
-from .models import Item
+from mezzanine.core.admin import TabularDynamicInlineAdmin
+from .models import Item, PortfolioImage
 
 from copy import deepcopy
 # Register your models here.
 
+class PortfolioImageInline(TabularDynamicInlineAdmin):
+    model = PortfolioImage
 
 class PortfolioItemAdmin(DisplayableAdmin):
     """
@@ -14,11 +17,12 @@ class PortfolioItemAdmin(DisplayableAdmin):
         deepcopy(DisplayableAdmin.fieldsets[0]),
         ("Project Details",
             {"fields":
-                 ("projectName", "projectDescription", "published", "source",)
+                 ("projectName", "projectDescription", "published", "source", "tags",)
             }
         ),
         deepcopy(DisplayableAdmin.fieldsets[1]),
     )
+    inlines = (PortfolioImageInline,)
 
 
 admin.site.register(Item, PortfolioItemAdmin)

@@ -14,13 +14,13 @@
 {% block main %}
 <ul>
     {{ object_list }}
-{% for item in object_list %}
-    <a href = "{% url 'portfolio-detail' item.id %}">
-        <li>{{ item.projectName }} - {{ item.projectDescription }}</li>
-    </a>
-{% empty %}
-    <li>No items yet.</li>
-{% endfor %}
+    {% for item in object_list %}
+        <a href = "{{ item.get_absolute_url }}">
+            <li>{{ item.projectName }} - {{ item.projectDescription }}</li>
+        </a>
+        {% empty %}
+            <li>No items yet.</li>
+    {% endfor %}
 </ul>
 
 {% endblock %}

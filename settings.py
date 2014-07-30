@@ -262,6 +262,7 @@ INSTALLED_APPS = (
     #"mezzanine.mobile",
     "mezzanine_pagedown",
     "markdown_styles",
+    "taggit",
     "portfolio",
 )
 

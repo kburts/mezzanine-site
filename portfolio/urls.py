@@ -3,5 +3,5 @@ from .views import PortfolioListView, PortfolioDetailView
 
 urlpatterns = patterns("",
     url(r'^$', PortfolioListView.as_view(), name='portfolio-list'),
-    url(r'^(?P<pk>\d+)/$', PortfolioDetailView.as_view(), name='portfolio-detail'),
+    url(r'^(?P<slug>.*)/$', PortfolioDetailView.as_view(), name='portfolio-detail'),
 )
