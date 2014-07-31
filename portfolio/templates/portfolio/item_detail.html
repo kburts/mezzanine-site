@@ -19,6 +19,8 @@
         {% for image in images %}
             {# <img src="{{ MEDIA_URL }}{% thumbnail image.file.url 300 300 %}"> #}
             <img src="{{ image.file.url }}" class="img-responsive">
+            <h6>{{ image.description }}</h6>
+            <br>
         {% endfor %}
         {% endwith %}
     </div>
@@ -31,13 +33,10 @@
         <p>
             {% with object.tags.all as tags %}
             {% for tag in tags %}
-                    {% editable tag.name %}{% endeditable %}
+                {% editable tag.name %}{% endeditable %}
             {% endfor %}
             {% endwith %}
         </p>
     </div>
 </div>
-
-{{ object.slug }}
-
 {% endblock %}
