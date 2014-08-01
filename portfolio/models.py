@@ -1,3 +1,5 @@
+from urlparse import urlparse
+
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -23,6 +25,9 @@ class Item(Displayable, RichText):
 
     def get_absolute_url(self):
         return reverse('portfolio-detail', args=[self.slug])
+
+    def get_source_repo(self):
+        return urlparse(self.source).netloc or "not available"
 
     def __unicode__(self):
         return self.projectName

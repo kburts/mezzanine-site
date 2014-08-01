@@ -5,7 +5,6 @@ from .models import Item
 # Create your views here.
 
 class PortfolioListView(ListView):
-
     model = Item
 
 class PortfolioDetailView(DetailView):

@@ -37,6 +37,10 @@
             {% endfor %}
             {% endwith %}
         </p>
+
+        <h3>Source: </h3>
+        <a href="{{ object.source }}">{{ object.get_source_repo }}</a>
+
     </div>
 </div>
 {% endblock %}
