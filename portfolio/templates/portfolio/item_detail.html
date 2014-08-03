@@ -1,0 +1,46 @@
+{% extends "portfolio/item_list.html" %}
+
+{% load mezzanine_tags %}
+
+{% block breadcrumb_menu %}
+{{ block.super }}
+<li class="active">{{ object.projectName }}</li>
+{% endblock %}
+
+
+{% block main %}
+<div class="row">
+    <h1 class="text-center">{% editable object.projectName %} {{ object.projectName }} {% endeditable %}</h1>
+</div>
+
+<div class="row">
+    <div class="col-xs-8">
+        {% with object.Images.all as images %}
+        {% for image in images %}
+            {# <img src="{{ MEDIA_URL }}{% thumbnail image.file.url 300 300 %}"> #}
+            <img src="{{ image.file.url }}" class="img-responsive">
+            <h6>{{ image.description }}</h6>
+            <br>
+        {% endfor %}
+        {% endwith %}
+    </div>
+
+    <div class="col-xs-4">
+        <h3>Description: </h3>
+        <p>{% editable object.projectDescription %} {{ object.projectDescription }} {% endeditable %}</p>
+
+        <h3>Skills: </h3>
+        <p>
+            {% with object.tags.all as tags %}
+            {% for tag in tags %}
+                {% editable tag.name %}{% endeditable %}
+            {% endfor %}
+            {% endwith %}
+        </p>
+
+        <h3>Source: </h3>
+        <a href="{{ object.source }}">{{ object.get_source_repo }}</a>
+
+    </div>
+</div>
+{% endblock %}

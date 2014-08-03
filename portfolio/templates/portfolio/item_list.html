@@ -2,17 +2,35 @@
 
 {% load mezzanine_tags %}
 
-{% block main %} {{ block.super }}
+{{ block.super }}
 
-<h1>Portfolio</h1>
-<ul>
-    {{ object_list }}
-{% for item in object_list %}
-    <li>{{ item }}</li>
-    <li>{{ item.projectName }} - {{ item.projectDescription }}</li>
-{% empty %}
-    <li>No items yet.</li>
-{% endfor %}
-</ul>
+{% block title %} {{ block.super }}
+{% endblock %}
 
+{% block breadcrumb_menu %}
+{{ block.super }}
+{% endblock %}
+
+{% block main %}
+    {% for item in object_list %}
+        <div class="{% if forloop.counter|divisibleby:2 %}row{% endif %}">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a href = "{{ item.get_absolute_url }}">
+                            <img src="{{ item.Images.all.0.file.url}}" class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="panel-body">
+                        <a href = "{{ item.get_absolute_url }}">
+                            {{ item.projectName }}
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% empty %}
+            <li>No items yet.</li>
+    {% endfor %}
 {% endblock %}
