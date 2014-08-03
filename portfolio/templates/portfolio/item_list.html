@@ -17,10 +17,14 @@
             <div class="col-sm-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <img src="{{ item.Images.all.0.file.url}}" class="img-responsive">
+                        <a href = "{{ item.get_absolute_url }}">
+                            <img src="{{ item.Images.all.0.file.url}}" class="img-responsive">
+                        </a>
                     </div>
                     <div class="panel-body">
-                        <a href = "{{ item.get_absolute_url }}">{{ item.projectName }}</a>
+                        <a href = "{{ item.get_absolute_url }}">
+                            {{ item.projectName }}
+                        </a>
                     </div>
                 </div>
 
