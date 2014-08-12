@@ -12,7 +12,7 @@ from taggit.managers import TaggableManager
 
 class Item(Displayable, RichText):
     projectName = models.TextField()
-    published = models.BooleanField(default=True)
+    featured = models.BooleanField(default=False)
     projectDescription = models.TextField()
     source = models.URLField(blank=True)
 
@@ -21,7 +21,7 @@ class Item(Displayable, RichText):
     class Meta:
         verbose_name = _("Portfolio item")
         verbose_name_plural = _("Portfolio item")
-        ordering = ("-publish_date",)
+        ordering = ("featured", "-publish_date",)
 
     def get_absolute_url(self):
         return reverse('portfolio-detail', args=[self.slug])

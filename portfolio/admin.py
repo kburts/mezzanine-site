@@ -17,7 +17,7 @@ class PortfolioItemAdmin(DisplayableAdmin):
         deepcopy(DisplayableAdmin.fieldsets[0]),
         ("Project Details",
             {"fields":
-                 ("projectName", "projectDescription", "published", "source", "tags",)
+                 ("projectName", "projectDescription", "featured", "source", "tags",)
             }
         ),
         deepcopy(DisplayableAdmin.fieldsets[1]),

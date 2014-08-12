@@ -7,5 +7,6 @@ from .models import Item
 class PortfolioListView(ListView):
     model = Item
 
+
 class PortfolioDetailView(DetailView):
     model = Item
