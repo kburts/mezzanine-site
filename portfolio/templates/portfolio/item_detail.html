@@ -39,7 +39,11 @@
         </p>
 
         <h3>Source: </h3>
-        <a href="{{ object.source }}">{{ object.get_source_repo }}</a>
+        {% if object.get_source_repo == "not available" %}
+          <p>not available</p>
+        {% else %}
+          <a href="{{ object.source }}">{{ object.get_source_repo }}</a>
+        {% endif %}
 
     </div>
 </div>
