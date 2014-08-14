@@ -15,7 +15,11 @@
     {% for item in object_list %}
         <div class="{% if forloop.counter|divisibleby:2 %}row{% endif %}">
             <div class="col-sm-6">
+              {% if item.featured %}
+                <div class="panel panel-primary">
+              {% else %}
                 <div class="panel panel-default">
+              {% endif %}
                     <div class="panel-heading">
                         <a href = "{{ item.get_absolute_url }}">
                             <img src="{{ item.Images.all.0.file.url}}" class="img-responsive">
