@@ -11,9 +11,19 @@ from mezzanine.utils.models import upload_to
 from taggit.managers import TaggableManager
 
 class Item(Displayable, RichText):
+    """
+    Portfolio Item object.
+    Fields:
+    projectName: Longer name than Displayable name field.
+    projectDescription: Short description of the project
+    featured: Boolean. Featured items displayed first and with blue boarder.
+    source: URL to remote repository (git/hg).
+    tags: Django-taggit object. CSV tags for the Item.
+    """
+
     projectName = models.TextField()
-    featured = models.BooleanField(default=False)
     projectDescription = models.TextField()
+    featured = models.BooleanField(default=False)
     source = models.URLField(blank=True)
 
     tags = TaggableManager()
@@ -33,6 +43,13 @@ class Item(Displayable, RichText):
         return self.projectName
 
 class PortfolioImage(models.Model):
+    """
+    Portfolio Item Image object.
+    Fields:
+    portfolioItem: FK To a Item
+    description: Short optional description shown under the image in detail-view.
+    file: Link to file in /static/media/portfolio/imagename.png
+    """
     # mostly from mezzanine/galleries/models.py
     portfolioItem = models.ForeignKey("Item", related_name="Images")
     description = models.CharField(_("Description"), max_length=1000, blank=True)
