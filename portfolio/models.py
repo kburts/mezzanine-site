@@ -31,7 +31,7 @@ class Item(Displayable, RichText):
     class Meta:
         verbose_name = _("Portfolio item")
         verbose_name_plural = _("Portfolio item")
-        ordering = ("featured", "-publish_date",)
+        ordering = ("-featured",)
 
     def get_absolute_url(self):
         return reverse('portfolio-detail', args=[self.slug])
