@@ -17,10 +17,13 @@
     <div class="col-xs-8">
         {% with object.Images.all as images %}
         {% for image in images %}
-            {# <img src="{{ MEDIA_URL }}{% thumbnail image.file.url 300 300 %}"> #}
-            <img src="{{ image.file.url }}" class="img-responsive">
-            <h6>{{ image.description }}</h6>
-            <br>
+            <!--<div class="slick-carousel-content">-->
+                <h6>{{ image.description }}</h6>
+                <a href="{{ image.file.url }}">
+                    <img src="{{ image.file.url }}" class="img-responsive">
+                </a>
+                <br>
+            <!--</div>-->
         {% endfor %}
         {% endwith %}
     </div>
